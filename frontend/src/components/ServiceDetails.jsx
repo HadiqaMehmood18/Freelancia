@@ -270,7 +270,7 @@ export default function ServiceDetails({ type }) {
                                         </div>
                                         <div className="provider">
                                             <span>Service Provided By</span>
-                                            <img src={data.clientOrderInfo.serviceUserInfo.image === 'no-image.png' ? noImage : `http://localhost:1900/ProfilePic/${data.clientOrderInfo.serviceUserInfo.image}`} alt="Profile Picture" />
+                                            <img src={data.clientOrderInfo.serviceUserInfo.image === 'no-image.png' ? noImage : `${process.env.REACT_APP_API_URL}/ProfilePic/${data.clientOrderInfo.serviceUserInfo.image}`} alt="Profile Picture" />
                                         </div>
                                     </div>
                                     {
@@ -285,7 +285,7 @@ export default function ServiceDetails({ type }) {
                                             <>
                                                 <div className="testimonialForm">
                                                     <form onSubmit={e => handleSubmit(e)}>
-                                                        <img src={avatar === 'no-image.png' ? noImage : `http://localhost:1900/ProfilePic/${avatar}`} alt="Profile Picture" />
+                                                        <img src={avatar === 'no-image.png' ? noImage : `${process.env.REACT_APP_API_URL}/ProfilePic/${avatar}`} alt="Profile Picture" />
                                                         <div className="form-input">
                                                             <div className="testimonialHeader">
                                                                 Add Testimonial
