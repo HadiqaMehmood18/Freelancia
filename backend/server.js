@@ -21,17 +21,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 MongoConnection();
-
 app.use("/user", userRoutes);
 app.use("/freelancer", freelancerRoutes);
 app.use("/client", clientRoutes);
 app.use("/chat", chatRoutes);
 const path = require("path");
-
 // Serve images statically
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
-
 app.use("/ProfilePic", express.static(__dirname + "/uploads/Users_imgs"));
 app.use("/ServicePic", express.static(__dirname + "/uploads/UsersServices"));
 
