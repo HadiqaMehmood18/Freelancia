@@ -47,26 +47,62 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/dashboard/freelancer/:id" element={<FreelancerDashboard />}>
+            <Route path="/dashboard/freelancer/:id">
               <Route index element={<FreelancerDashboard />} />
-              <Route path="services">
+              <Route path="/dashboard/freelancer/:id/services">
                 <Route index element={<FreelancerServices />} />
-                <Route path="create" element={<FreelancerCreateService />} />
-                <Route path="manage" element={<FreelancerManageServices />} />
-                <Route path="update/:serviceId" element={<FreelancerUpdateService />} />
-                <Route path="show/:serviceId" element={<ServiceDetails type="1" />} />
+                <Route
+                  path="/dashboard/freelancer/:id/services/create"
+                  element={<FreelancerCreateService />}
+                />
+                <Route
+                  path="/dashboard/freelancer/:id/services/manage"
+                  element={<FreelancerManageServices />}
+                />
+                <Route
+                  path="/dashboard/freelancer/:id/services/update/:serviceId"
+                  element={<FreelancerUpdateService />}
+                />
+                <Route
+                  path="/dashboard/freelancer/:id/services/show/:serviceId"
+                  element={<ServiceDetails type="1" />}
+                />
               </Route>
-              <Route path="chat" element={<Chat type="freelancer" />} />
-              <Route path="profile" element={<Profile type="1" />} />
+              <Route
+                path="/dashboard/freelancer/:id/chat"
+                element={<Chat type="freelancer" />}
+              />
+              <Route
+                path="/dashboard/freelancer/:id/profile"
+                element={<Profile type="1" />}
+              />
             </Route>
-            <Route path="/dashboard/client/:id" element={<ClientDashboard />}>
+            <Route path="/dashboard/client/:id">
               <Route index element={<ClientDashboard />} />
-              <Route path="services" element={<ClientFreelancers />} />
-              <Route path="services/show/:serviceId" element={<ServiceDetails type="2" />} />
-              <Route path="orders" element={<ClientOrders />} />
-              <Route path="order/show/:serviceId" element={<ServiceDetails type="3" />} />
-              <Route path="chat" element={<Chat type="2" />} />
-              <Route path="profile" element={<Profile type="2" />} />
+              <Route
+                path="/dashboard/client/:id/services"
+                element={<ClientFreelancers />}
+              />
+              <Route
+                path="/dashboard/client/:id/services/show/:serviceId"
+                element={<ServiceDetails type="2" />}
+              />
+              <Route
+                path="/dashboard/client/:id/orders"
+                element={<ClientOrders />}
+              />
+              <Route
+                path="/dashboard/client/:id/order/show/:serviceId"
+                element={<ServiceDetails type="3" />}
+              />
+              <Route
+                path="/dashboard/client/:id/chat"
+                element={<Chat type="2" />}
+              />
+              <Route
+                path="/dashboard/client/:id/profile"
+                element={<Profile type="2" />}
+              />
             </Route>
             <Route path="*" element={<PageNotFound />} />
           </Routes>
