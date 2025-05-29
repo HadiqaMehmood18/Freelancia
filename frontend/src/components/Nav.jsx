@@ -62,7 +62,7 @@ export default function Nav() {
                                 <button><HashLink to="/login">Sign in</HashLink></button>
                                 :
                                 <div className="menu">
-                                    <img src={avatar === 'no-image.png' ? noImage : `http://localhost:1900/ProfilePic/${avatar}`} onClick={e => dropdown.current.classList.toggle('active')} alt="Profile Picture" />
+                                    <img src={avatar === 'no-image.png' ? noImage : `${process.env.REACT_APP_API_URL}/ProfilePic/${avatar}`} onClick={e => dropdown.current.classList.toggle('active')} alt="Profile Picture" />
                                     <div ref={dropdown} className="dropdown">
                                         <div className="link" onClick={e => handleProfile()}>Dashboard</div>
                                         <div className="link" onClick={e => handleLogOut()}>Log Out</div>
