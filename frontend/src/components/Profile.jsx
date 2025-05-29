@@ -123,7 +123,7 @@ export default function Profile({ type }) {
                         <form encType="multipart/form-data" onSubmit={e => e.preventDefault()}>
                             <div className="profileHeader">
                                 <div className="profiledescription">
-                                    <img src={image == null || avatar === 'no-image.png' ? noImage : `http://localhost:1900/ProfilePic/${avatar}`} alt="Profile Picture" />
+                                    <img src={image == null || avatar === 'no-image.png' ? noImage : `${process.env.REACT_APP_API_URL}/ProfilePic/${avatar}`} alt="Profile Picture" />
                                     <div className="profileName">
                                         <div className="name">
                                             {userInfo?.fullName}
@@ -160,7 +160,7 @@ export default function Profile({ type }) {
                                     </div>
                                     <span>This Will Be Displayed On Your Profile</span>
                                 </div>
-                                <img src={image == null || avatar === 'no-image.png' ? noImage : `http://localhost:1900/ProfilePic/${avatar}`} alt="Profile Picture" />
+                                <img src={image == null || avatar === 'no-image.png' ? noImage : `${process.env.REACT_APP_API_URL}/ProfilePic/${avatar}`} alt="Profile Picture" />
                                 <div className="picturebuttons">
                                     <label htmlFor="image">Upload</label>
                                     <input onChange={e => handleImage(e)} type="file" name="image" id="image" />
