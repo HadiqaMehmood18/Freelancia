@@ -100,7 +100,7 @@ export default function ClientOrders() {
                                             <Slider images={order.serviceInfo.images.split('|')} />
                                         </div>
                                         <div className="serviceHeader">
-                                            <img src={order.serviceUserInfo.image === 'no-image.png' ? noImage : `http://localhost:1900/ProfilePic/${order.serviceUserInfo.image}`} alt="" />
+                                            <img src={order.serviceUserInfo.image === 'no-image.png' ? noImage : `${process.env.REACT_APP_API_URL}/ProfilePic/${order.serviceUserInfo.image}`} alt="" />
                                             <span>{order.serviceUserInfo.username}</span>
                                         </div>
                                         <div className="serviceBody">
