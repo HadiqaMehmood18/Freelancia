@@ -41,7 +41,7 @@ export default function Message({ selectedMessage }) {
     }, [selectedMessage]);
 
     useEffect(() => {
-        socket.current = io("ws://localhost:1900")
+    socket.current = io(process.env.REACT_APP_SOCKET_URL)
         socket.current.on('getMessage', (data) => {
             setArrivalMessage({
                 senderId: data.senderId,
@@ -170,7 +170,7 @@ export default function Message({ selectedMessage }) {
                 messages?.messages?.withInfo &&
                 <>
                     <div className="selectedMessageHeader">
-                        <img src={messages?.messages?.withInfo?.avatar == "no-image.png" ? noImage : `http://localhost:1900/ProfilePic/${messages?.messages?.withInfo?.avatar}`} alt="image test" />
+                        <img src={messages?.messages?.withInfo?.avatar == "no-image.png" ? noImage : `${process.env.REACT_APP_API_URL}/ProfilePic/${messages?.messages?.withInfo?.avatar}`} alt="image test" />
                         <span>{messages?.messages?.withInfo?.username}</span>
 
                     </div>
