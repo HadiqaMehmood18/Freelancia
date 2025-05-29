@@ -52,7 +52,7 @@ export default function Chat({ type }) {
     <div className="messages">
       {data.userConversation.filter(conversation => conversation != null).map(conversation =>
         <div key={conversation._id} className={selectedMessage !== conversation._id ? "messageSection" : "messageSection active"} onClick={() => setSelectedMessage(conversation._id)}>
-          <img src={conversation.avatar === "no-image.png" ? noImage : `http://localhost:1900/ProfilePic/${conversation.avatar}`} alt="test image" />
+<img src={conversation.avatar === "no-image.png" ? noImage : `${process.env.REACT_APP_API_URL}/ProfilePic/${conversation.avatar}`} alt="test image" />
           <div className="messageUserInfo">
             <div className="messageUserName">{conversation.username}</div>
           </div>
@@ -85,8 +85,6 @@ export default function Chat({ type }) {
     }
   </div>
 }
-
-
           </div>
           {type == "freelancer" ? <FreelancerMenu active="chat" /> : <ClientMenu active="chat" />}
 
