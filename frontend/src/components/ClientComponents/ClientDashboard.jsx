@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Outlet } from 'react-router-dom';
 import { myDashboard } from './../../Redux/ClientSlice';
 import orders from '../../assets/svgs/servicesIcon.svg'
 import usd from '../../assets/svgs/usd.svg'
@@ -105,6 +105,7 @@ export default function ClientDashboard() {
                                         }
                                     </div>
                                 </div>
+                                <Outlet />
                             </>
                             :
                             <div className="serverStopped">
