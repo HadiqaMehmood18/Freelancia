@@ -22,7 +22,12 @@ export default function Profile({ type }) {
     const usernameInput = useRef()
 
     useEffect(() => {
-        tokenExists(token, navigate, dispatch).then(data => (data == false || JSON.parse(localStorage.getItem('userInfo'))._id != id || window.location.href.slice(32).split('/')[0] != JSON.parse(localStorage.getItem('userInfo')).role) && navigate("/login"))
+        tokenExists(token, navigate, dispatch).then(data => {
+            const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+            if (data == false || userInfo._id != id || userInfo.role != type) {
+                navigate("/login");
+            }
+        });
         if (localStorage.getItem('userInfo')) {
             const localStorageUserInfo = JSON.parse(localStorage.getItem('userInfo'))
             if (localStorageUserInfo.image != 'no-image.png') {
@@ -132,7 +137,7 @@ export default function Profile({ type }) {
                                     </div>
                                 </div>
                                 <div className="profileheaderbuttons">
-                                    <button onClick={e => window.location.href = `/dashboard/client/${id}/profile`}>Cancel</button>
+                                    <button onClick={e => { e.preventDefault(); navigate(`/dashboard/client/${id}/profile`) }}>Cancel</button>
                                     <button onClick={e => handleSave()}>Save</button>
                                 </div>
                             </div>
