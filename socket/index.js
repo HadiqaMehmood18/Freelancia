@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors({
   origin: [
-    "http://localhost:3000",
+    process.env.REACT_APP_FRONTEND_URL || "http://localhost:3000",
     "https://freelancia.vercel.app"
   ],
   credentials: true,
@@ -18,7 +18,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: [
-      "http://localhost:3000",
+      process.env.REACT_APP_FRONTEND_URL || "http://localhost:3000",
       "https://freelancia.vercel.app"
     ],
     methods: ["GET", "POST"]
