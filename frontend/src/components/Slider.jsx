@@ -15,7 +15,7 @@ export default function Slider({ images }) {
             pagination={{ clickable: true }}
         >
             {images.map((imageSrc, i) => <SwiperSlide key={i}>
-                <img src={`http://localhost:1900/ServicePic/${imageSrc}`} alt="" />
+                <img src={`${process.env.REACT_APP_API_URL}/ServicePic/${imageSrc}`} alt="" />
             </SwiperSlide>)}
         </Swiper>
     )
