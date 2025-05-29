@@ -37,7 +37,7 @@ export default function Testimonial({ data, role }) {
                     navigation
                 >
                     {data?.map((testimonial, i) => <SwiperSlide key={i}>
-                        <img src={testimonial.freelancerAvatar != "no-image.png" ? `http://localhost:1900/ProfilePic/${testimonial.freelancerAvatar}` : noImage} alt="Client Pic" />
+                        <img src={testimonial.freelancerAvatar != "no-image.png" ? `${process.env.REACT_APP_API_URL}/ProfilePic/${testimonial.freelancerAvatar}` : noImage} alt="Client Pic" />
                         <div className="info">
                             <div className="cardHeader">
                                 {testimonial.freelancerUsername}
