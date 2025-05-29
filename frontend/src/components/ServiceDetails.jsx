@@ -233,7 +233,7 @@ export default function ServiceDetails({ type }) {
                                                     </div>
                                                     <div className="provider">
                                                         <span>Service Provided By</span>
-                                                        <img src={data.selectedService.userId.image === 'no-image.png' ? noImage : `http://localhost:1900/ProfilePic/${data.selectedService.userId.image}`} alt="Profile Picture" />
+                                                        <img src={data.selectedService.userId.image === 'no-image.png' ? noImage : `${process.env.REACT_APP_API_URL}/${data.selectedService.userId.image}`} alt="Profile Picture" />
                                                     </div>
                                                 </div>
                                             }
