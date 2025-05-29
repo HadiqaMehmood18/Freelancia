@@ -4,7 +4,7 @@ import orders from '../../assets/svgs/servicesIcon.svg'
 import FreelancerMenu from './FreelancerMenu';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Outlet } from 'react-router-dom';
 import { tokenExists } from '../../Redux/UserSlice'
 import { myDashboard } from '../../Redux/FreelancerSlice'
 import { toast } from 'react-toastify';
@@ -124,6 +124,7 @@ export default function FreelancerDashboard() {
                                             <div className='noTestimonials'>You have no reviews for now</div>}
                                     </div>
                                 </div>
+                                <Outlet />
                             </>
                             :
                             <div className="serverStopped">
