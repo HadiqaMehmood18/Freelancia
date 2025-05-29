@@ -20,7 +20,12 @@ export default function Chat({ type }) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    tokenExists(token, navigate, dispatch).then(data => (data == false || JSON.parse(localStorage.getItem('userInfo'))._id != id || window.location.href.slice(32).split('/')[0] != JSON.parse(localStorage.getItem('userInfo')).role) && navigate("/login"))
+    tokenExists(token, navigate, dispatch).then(data => {
+      const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+      if (data == false || userInfo._id != id || userInfo.role != type) {
+        navigate("/login");
+      }
+    });
     dispatch(myConversations()).unwrap().then(data => {
       setTimeout(() => {
         setLoading(false)
@@ -85,6 +90,8 @@ export default function Chat({ type }) {
     }
   </div>
 }
+
+
           </div>
           {type == "freelancer" ? <FreelancerMenu active="chat" /> : <ClientMenu active="chat" />}
 
