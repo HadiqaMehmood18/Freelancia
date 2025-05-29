@@ -11,10 +11,15 @@ const clientRoutes = require("./routes/ClientRoutes");
 const chatRoutes = require("./routes/ChatRoutes");
 const bodyParser = require("body-parser");
 
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://freelancia.vercel.app',
+  credentials: true
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
+
 MongoConnection();
 
 app.use("/user", userRoutes);
