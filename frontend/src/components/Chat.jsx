@@ -20,9 +20,15 @@ export default function Chat({ type }) {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    console.log("Chat.jsx useEffect start");
     tokenExists(token, navigate, dispatch).then(data => {
+      console.log("tokenExists result:", data);
       const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+      console.log("userInfo:", userInfo);
+      console.log("id param:", id);
+      console.log("type prop:", type);
       if (data == false || userInfo._id != id || userInfo.role != type) {
+        console.log("Redirecting to /login due to failed checks");
         navigate("/login");
       }
     });
