@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import myAxios from "./myAxios";
+import socket from "./socket";
 
 export const myConversations = createAsyncThunk(
   "client/myConversations",
@@ -51,6 +52,13 @@ export const sendMessage = createAsyncThunk(
           },
         }
       );
+      // Emit socket event for real-time message
+      socket.emit("sendMessage", {
+        senderId: JSON.parse(localStorage.getItem("userInfo"))._id,
+        receiverId: receiver,
+        text,
+        chatId: null,
+      });
       return res.data;
     } catch (e) {
       if (e.message == "Network Error") {
@@ -69,8 +77,10 @@ const chatSlice = createSlice({
   },
   reducers: {
     setNewMessages: (state, action) => {
-      state.messages.conversationMessages =
-        state.messages.messages.conversationMessages.push(action.payload);
+      if (!state.messages.conversationMessages) {
+        state.messages.conversationMessages = [];
+      }
+      state.messages.conversationMessages.push(action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -90,6 +100,22 @@ const chatSlice = createSlice({
     });
   },
 });
+
+socket.on("getMessage", (data) => {
+  // Dispatch action to add new message to state
+  // This requires access to the store's dispatch, so we will export a function to set dispatch
+});
+
+let dispatchFunction = null;
+
+export const setSocketDispatch = (dispatch) => {
+  dispatchFunction = dispatch;
+  socket.on("getMessage", (data) => {
+    if (dispatchFunction) {
+      dispatchFunction(setNewMessages(data));
+    }
+  });
+};
 
 export const { setNewMessages } = chatSlice.actions;
 export default chatSlice.reducer;
