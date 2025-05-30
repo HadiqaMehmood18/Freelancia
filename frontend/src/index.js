@@ -6,9 +6,11 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { store } from "./Redux/store";
 import { Provider } from "react-redux";
+import { setSocketDispatch } from "./Redux/ChatSlice";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+setSocketDispatch(store.dispatch);
 
 root.render(
   <Provider store={store}>
