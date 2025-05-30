@@ -27,7 +27,7 @@ export default function Chat({ type }) {
       console.log("userInfo:", userInfo);
       console.log("id param:", id);
       console.log("type prop:", type);
-      if (data == false || userInfo._id != id || userInfo.role != type) {
+      if (data == false || userInfo._id != id || (userInfo.role != type && (userInfo.role !== (type === "1" ? "freelancer" : "client")))) {
         console.log("Redirecting to /login due to failed checks");
         navigate("/login");
       }
