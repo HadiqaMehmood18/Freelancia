@@ -125,7 +125,13 @@ export default function ServiceDetails({ type }) {
     }
 
     useEffect(() => {
-        tokenExists(token, navigate, dispatch).then(data => (data == false || JSON.parse(localStorage.getItem('userInfo'))._id != id || window.location.href.slice(32).split('/')[0] != JSON.parse(localStorage.getItem('userInfo')).role) && navigate("/login"))
+        tokenExists(token, navigate, dispatch).then(data => {
+            const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+            const urlRole = window.location.href.slice(32).split('/')[0];
+            if (data == false || userInfo._id != id || (urlRole != userInfo.role && (urlRole !== (userInfo.role === "freelancer" ? "1" : "2")))) {
+                navigate("/login");
+            }
+        });
         fetchData()
     }, [])
 
