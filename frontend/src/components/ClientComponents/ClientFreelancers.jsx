@@ -83,6 +83,7 @@ export default function ClientServices() {
                 </div>
                 <div className="serviceHeader">
                   {console.log("ClientFreelancers - profile image URL:", service.userInfo.image === 'no-image.png' ? noImage : `${process.env.REACT_APP_API_URL}/ProfilePic/${service.userInfo.image}`)}
+                  {console.log("ClientFreelancers - profile image URL:", service.userInfo.image === 'no-image.png' ? noImage : `${process.env.REACT_APP_API_URL}/ProfilePic/${service.userInfo.image}`)}
                   <img src={service.userInfo.image === 'no-image.png' ? noImage : `${process.env.REACT_APP_API_URL}/ProfilePic/${service.userInfo.image}`} alt="Profile Picture" />
                   <span>{service.userInfo.username}</span>
                 </div>
