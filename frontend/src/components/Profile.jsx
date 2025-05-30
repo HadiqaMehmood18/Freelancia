@@ -24,7 +24,8 @@ export default function Profile({ type }) {
     useEffect(() => {
         tokenExists(token, navigate, dispatch).then(data => {
             const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-            if (data == false || userInfo._id != id || userInfo.role != type) {
+            if (data == false || userInfo._id != id || (userInfo.role != type && (userInfo.role !== (type === "1" ? "freelancer" : "client")))) {
+                console.log("Redirecting to /login due to failed checks");
                 navigate("/login");
             }
         });
