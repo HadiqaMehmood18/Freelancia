@@ -128,11 +128,14 @@ export default function ServiceDetails({ type }) {
         tokenExists(token, navigate, dispatch).then(data => {
             const userInfo = JSON.parse(localStorage.getItem('userInfo'));
             const urlRole = window.location.href.slice(32).split('/')[0];
+            const pathnameSegments = window.location.pathname.split('/');
+            const extractedRole = pathnameSegments.length > 2 ? pathnameSegments[2] : "";
             console.log("ServiceDetails useEffect - id param:", id);
             console.log("ServiceDetails useEffect - userInfo._id:", userInfo._id);
-            console.log("ServiceDetails useEffect - urlRole:", urlRole);
+            console.log("ServiceDetails useEffect - urlRole (old):", urlRole);
+            console.log("ServiceDetails useEffect - urlRole (extracted):", extractedRole);
             console.log("ServiceDetails useEffect - userInfo.role:", userInfo.role);
-            if (data == false || userInfo._id != id || (urlRole != userInfo.role && (urlRole !== (userInfo.role === "freelancer" ? "1" : "2")))) {
+            if (data == false || userInfo._id != id || (extractedRole != userInfo.role && (extractedRole !== (userInfo.role === "freelancer" ? "1" : "2")))) {
                 console.log("Redirecting to /login due to failed checks");
                 navigate("/login");
             }
