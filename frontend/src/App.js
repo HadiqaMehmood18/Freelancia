@@ -70,7 +70,7 @@ function App() {
               </Route>
               <Route
                 path="/dashboard/freelancer/:id/chat"
-                element={<Chat type="freelancer" />}
+                element={<Chat type="1" />}
               />
               <Route
                 path="/dashboard/freelancer/:id/profile"
