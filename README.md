@@ -164,67 +164,6 @@ npm start
 - **Secure File Uploads**: Protected file handling
 - **Password Requirements**: Minimum 8 characters with validation
 
-## 🌐 API Endpoints
-
-### **Authentication**
-- `POST /user/login` - User login
-- `POST /user/signup` - User registration
-
-### **Freelancer**
-- `GET /freelancer/services` - Get freelancer services
-- `POST /freelancer/create-service` - Create new service
-- `GET /freelancer/applications` - Get applications
-
-### **Client**
-- `POST /client/create-job` - Create job posting
-- `GET /client/applicants` - Get job applicants
-
-### **Chat**
-- `GET /chat/conversations` - Get user conversations
-- `POST /chat/message` - Send message
-
-## 📊 Database Schema
-
-### **Users Collection**
-```javascript
-{
-  _id: ObjectId,
-  username: String,
-  email: String,
-  password: String,
-  role: String, // 'freelancer' or 'client'
-  skills: [String],
-  rating: Number,
-  avatar: String,
-  createdAt: Date
-}
-```
-
-### **Services Collection**
-```javascript
-{
-  _id: ObjectId,
-  freelancerId: ObjectId,
-  title: String,
-  description: String,
-  price: Number,
-  category: String,
-  images: [String],
-  createdAt: Date
-}
-```
-
-### **Messages Collection**
-```javascript
-{
-  _id: ObjectId,
-  senderId: ObjectId,
-  receiverId: ObjectId,
-  message: String,
-  timestamp: Date,
-  read: Boolean
-}
-```
 
 ## 🚀 Deployment
 
@@ -268,4 +207,5 @@ vercel --prod
 ---
 
 **⭐ Freelancia - Empowering Students Through Freelance Opportunities**
+
 
