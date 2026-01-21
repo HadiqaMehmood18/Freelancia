@@ -130,6 +130,8 @@ npm start
 - Service categories display
 - About Us and Contact Us sections
 - Animated intro component for engaging UX
+<img width="1058" height="531" alt="image" src="https://github.com/user-attachments/assets/78edc549-4b2a-4a62-8912-2e35b4f65d02" /> <img width="1056" height="548" alt="image" src="https://github.com/user-attachments/assets/648ee306-2556-4588-a9eb-16c8bf0ffba8" /> <img width="1064" height="536" alt="image" src="https://github.com/user-attachments/assets/a681d01f-48a2-4221-b179-0bbfef7cac26" />
+
 
 ### **Authentication (`Login.jsx`)**
 - Secure login form with validation
@@ -207,5 +209,6 @@ vercel --prod
 ---
 
 **⭐ Freelancia - Empowering Students Through Freelance Opportunities**
+
 
 
