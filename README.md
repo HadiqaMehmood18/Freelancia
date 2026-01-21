@@ -130,8 +130,11 @@ npm start
 - Service categories display
 - About Us and Contact Us sections
 - Animated intro component for engaging UX
-<img width="1058" height="531" alt="image" src="https://github.com/user-attachments/assets/78edc549-4b2a-4a62-8912-2e35b4f65d02" /> <img width="1056" height="548" alt="image" src="https://github.com/user-attachments/assets/648ee306-2556-4588-a9eb-16c8bf0ffba8" /> <img width="1064" height="536" alt="image" src="https://github.com/user-attachments/assets/a681d01f-48a2-4221-b179-0bbfef7cac26" />
-
+<img width="1088" height="545" alt="image" src="https://github.com/user-attachments/assets/b1390f33-bc00-48b4-947d-740edb2683a6" /><img width="1087" height="559" alt="image" src="https://github.com/user-attachments/assets/8230a01c-6cf0-43f9-9592-c3c478c439f3" />
+<img width="1113" height="569" alt="image" src="https://github.com/user-attachments/assets/1e09542b-41d6-493e-947c-f893948e8e6a" />
+<img width="1087" height="616" alt="image" src="https://github.com/user-attachments/assets/c86ba529-5879-4326-891e-3ec768112fc8" />
+<img width="1087" height="565" alt="image" src="https://github.com/user-attachments/assets/ee10c6ed-5bda-4eb0-9876-4674bb5794d2" />
+<img width="1112" height="619" alt="image" src="https://github.com/user-attachments/assets/407b2a59-2e67-46b7-8b13-2f72d44aa0c9" />
 
 ### **Authentication (`Login.jsx`)**
 - Secure login form with validation
@@ -156,6 +159,9 @@ npm start
 - Applicant review system
 - Project management tools
 - Freelancer communication
+
+**Workflow**
+<img width="1114" height="628" alt="image" src="https://github.com/user-attachments/assets/b40a1cfb-ea37-4dd6-8bac-47102112b878" />
 
 ## 🔒 Security Features
 
@@ -209,6 +215,7 @@ vercel --prod
 ---
 
 **⭐ Freelancia - Empowering Students Through Freelance Opportunities**
+
 
 
 
